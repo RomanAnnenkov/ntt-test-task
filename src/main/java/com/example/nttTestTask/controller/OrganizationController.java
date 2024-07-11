@@ -26,11 +26,6 @@ public class OrganizationController {
      */
     @GetMapping("/organizations")
     public ResponseEntity<List<Organization>> getAllOrganizations() {
-        try {
             return ResponseEntity.ok(service.getAllOrganizations());
-        } catch (Exception e) {
-            return ResponseEntity.internalServerError().build();
-        }
-
     }
 }
