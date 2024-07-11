@@ -36,6 +36,9 @@ databaseChangeLog:
               - column:
                   name: chief_id
                   value: '1'
+              - column:
+                  name: organization_id
+                  value: '1'
   - changeSet:
       id: "3"
       author: RomanAnnenkov
@@ -64,7 +67,4 @@ databaseChangeLog:
                   value: 'SPb office'
               - column:
                   name: ceo_id
-                  value: '1'
-              - column:
-                  name: office_id
                   value: '1'

@@ -3,6 +3,8 @@ package com.example.nttTestTask.model;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.util.Set;
+
 /**
  * Base class Organization
  */
@@ -11,6 +13,7 @@ import lombok.Data;
 @Table(name = "organizations")
 public class Organization {
     @Id
+    @Column(name = "organization_id")
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
@@ -32,9 +35,12 @@ public class Organization {
     @Column(name = "legal_address")
     private String legalAddress;
 
-    @Column(name = "ceo_id")
-    private Long employee;
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "ceo_id", referencedColumnName = "employee_id")
+    private Employee ceo;
 
-    @Column(name = "office_id")
-    private Long office;
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "organization_id", referencedColumnName = "organization_id")
+    private Set<Office> offices;
+
 }

@@ -13,6 +13,7 @@ import java.util.Date;
 @Table(name = "employees")
 public class Employee {
     @Id
+    @Column(name = "employee_id")
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 

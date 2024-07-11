@@ -8,7 +8,7 @@ databaseChangeLog:
             tableName:  organizations
             columns:
               - column:
-                  name:  id
+                  name:  organization_id
                   type:  int
                   autoIncrement:  true
                   constraints:
@@ -49,12 +49,7 @@ databaseChangeLog:
                   type:  int
                   constraints:
                     nullable: false
-                    foreignKeyName: employees.id
-              - column:
-                  name:  office_id
-                  type:  int
-                  constraints:
-                    nullable: false
+                    foreignKeyName: employees.employee_id
 
   - changeSet:
       id:  "2"
@@ -65,7 +60,7 @@ databaseChangeLog:
             tableName:  employees
             columns:
               - column:
-                  name:  id
+                  name:  employee_id
                   type:  int
                   autoIncrement:  true
                   constraints:
@@ -101,6 +96,13 @@ databaseChangeLog:
             tableName:  offices
             columns:
               - column:
+                  name:  office_id
+                  type:  int
+                  autoIncrement:  true
+                  constraints:
+                    primaryKey:  true
+                    nullable:  false
+              - column:
                   name:  name
                   type:  varchar(50)
                   constraints:
@@ -115,4 +117,10 @@ databaseChangeLog:
                   type:  int
                   constraints:
                     nullable: false
-                    foreignKeyName: employees.id
+                    foreignKeyName: employees.employee_id
+              - column:
+                  name:  organization_id
+                  type:  int
+                  constraints:
+                    nullable: false
+                    foreignKeyName: organizations.organization_id

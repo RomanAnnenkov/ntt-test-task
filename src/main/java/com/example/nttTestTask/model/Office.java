@@ -11,6 +11,7 @@ import lombok.Data;
 @Table(name = "offices")
 public class Office {
     @Id
+    @Column(name = "office_id")
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
@@ -20,6 +21,10 @@ public class Office {
     @Column(name = "address")
     private String address;
 
-    @Column(name = "chief_id")
-    private Long chief;
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "chief_id", referencedColumnName = "employee_id")
+    private Employee chief;
+
+    @Column(name = "organization_id")
+    private int organizationId;
 }
