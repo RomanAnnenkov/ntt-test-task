@@ -1,5 +1,6 @@
 package com.example.nttTestTask.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -11,6 +12,7 @@ import java.util.Set;
 @Entity
 @Data
 @Table(name = "organizations")
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Organization {
     @Id
     @Column(name = "organization_id")

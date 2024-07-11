@@ -26,4 +26,12 @@ public class OrganizationService {
         return repository.findAll();
     }
 
+    /**
+     * Method to get organization by id
+     * @param id organization id
+     * @return organization object
+     */
+    public Organization getOrganizationById(Long id) {
+        return repository.getReferenceById(id);
+    }
 }
