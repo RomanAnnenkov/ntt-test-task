@@ -1,0 +1,70 @@
+databaseChangeLog:
+  - changeSet:
+      id: "1"
+      author: RomanAnnenkov
+      comment: "insert test employee"
+      changes:
+        - insert:
+            tableName: employees
+            columns:
+              - column:
+                  name: surname
+                  value: 'Ivanov'
+              - column:
+                  name: name
+                  value: 'Ivan'
+              - column:
+                  name: middle_name
+                  value: 'Ivanovich'
+              - column:
+                  name: birth_date
+                  value: '1985-02-21'
+  - changeSet:
+      id: "2"
+      author: RomanAnnenkov
+      comment: "insert test office"
+      changes:
+        - insert:
+            tableName: offices
+            columns:
+              - column:
+                  name: name
+                  value: 'Main office'
+              - column:
+                  name: address
+                  value: 'SPb'
+              - column:
+                  name: chief_id
+                  value: '1'
+  - changeSet:
+      id: "3"
+      author: RomanAnnenkov
+      comment: "insert test organization"
+      changes:
+        - insert:
+            tableName: organizations
+            columns:
+              - column:
+                  name: full_name
+                  value: 'OOO Full Name'
+              - column:
+                  name: short_name
+                  value: 'OOO Short Name'
+              - column:
+                  name: inn
+                  value: '123456789'
+              - column:
+                  name: ogrn
+                  value: '987654321'
+              - column:
+                  name: post_address
+                  value: 'Moskow Post'
+              - column:
+                  name: legal_address
+                  value: 'SPb office'
+              - column:
+                  name: ceo_id
+                  value: '1'
+              - column:
+                  name: office_id
+                  value: '1'
