@@ -1,3 +1,6 @@
 spring:
   application:
     name: nttTestTask
+  profiles:
+    active:
+      - dev

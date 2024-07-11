@@ -1,0 +1,118 @@
+databaseChangeLog:
+  - changeSet:
+      id:  "1"
+      author:  RomanAnnenkov
+      comment: "create table organizations"
+      changes:
+        - createTable:
+            tableName:  organizations
+            columns:
+              - column:
+                  name:  id
+                  type:  int
+                  autoIncrement:  true
+                  constraints:
+                    primaryKey:  true
+                    nullable:  false
+              - column:
+                  name:  full_name
+                  type:  text
+                  constraints:
+                    nullable:  false
+              - column:
+                  name:  short_name
+                  type:  varchar(50)
+                  constraints:
+                    nullable: false
+              - column:
+                  name:  inn
+                  type:  varchar(50)
+                  constraints:
+                    nullable: false
+              - column:
+                  name:  ogrn
+                  type:  varchar(50)
+                  constraints:
+                    nullable: false
+              - column:
+                  name:  post_address
+                  type:  varchar(50)
+                  constraints:
+                    nullable: false
+              - column:
+                  name:  legal_address
+                  type:  varchar(50)
+                  constraints:
+                    nullable: false
+              - column:
+                  name:  ceo_id
+                  type:  int
+                  constraints:
+                    nullable: false
+                    foreignKeyName: employees.id
+              - column:
+                  name:  office_id
+                  type:  int
+                  constraints:
+                    nullable: false
+
+  - changeSet:
+      id:  "2"
+      author:  RomanAnnenkov
+      comment: "create table employees"
+      changes:
+        - createTable:
+            tableName:  employees
+            columns:
+              - column:
+                  name:  id
+                  type:  int
+                  autoIncrement:  true
+                  constraints:
+                    primaryKey:  true
+                    nullable:  false
+              - column:
+                  name:  surname
+                  type:  varchar(50)
+                  constraints:
+                    nullable:  false
+              - column:
+                  name:  name
+                  type:  varchar(50)
+                  constraints:
+                    nullable:  false
+              - column:
+                  name:  middle_name
+                  type:  varchar(50)
+                  constraints:
+                    nullable:  false
+              - column:
+                  name:  birth_date
+                  type:  date
+                  constraints:
+                    nullable:  false
+
+  - changeSet:
+      id:  "3"
+      author:  RomanAnnenkov
+      comment: "create table offices"
+      changes:
+        - createTable:
+            tableName:  offices
+            columns:
+              - column:
+                  name:  name
+                  type:  varchar(50)
+                  constraints:
+                    nullable: false
+              - column:
+                  name:  address
+                  type:  varchar(50)
+                  constraints:
+                    nullable: false
+              - column:
+                  name:  chief_id
+                  type:  int
+                  constraints:
+                    nullable: false
+                    foreignKeyName: employees.id
