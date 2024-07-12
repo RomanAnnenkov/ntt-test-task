@@ -8,6 +8,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -45,5 +46,22 @@ public class OrganizationController {
     @Operation(summary = "Get organization by id")
     public ResponseEntity<Organization> getOrganizationById(@PathVariable Long id) {
         return ResponseEntity.ok(service.getOrganizationById(id));
+    }
+
+    /**
+     * Get method for filter organization list
+     * @param fullNameLike part full name of organization
+     * @param shortNameLike part full name of organization
+     * @param innLike part full name of inn code
+     * @param ogrnLike part full name of ogrn code
+     * @return list of found organization
+     */
+    @GetMapping("/organizations/filter")
+    @Operation(summary = "Find organizations", description = "Apply filter parameters on list of organizations")
+    public ResponseEntity<List<Organization>> findOrganizationsByFilter(@RequestParam(required = false) String fullNameLike,
+                                                                        @RequestParam(required = false) String shortNameLike,
+                                                                        @RequestParam(required = false) String innLike,
+                                                                        @RequestParam(required = false) String ogrnLike) {
+        return ResponseEntity.ok(service.findOrganizationsByFilter(fullNameLike, shortNameLike, innLike, ogrnLike));
     }
 }
