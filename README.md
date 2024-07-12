@@ -8,6 +8,7 @@ Test data is added on first run by liquibase migrations.
 Specify parameters for connecting to the database in the configuration file application-dev.yml
 or use your own file for overwrite the current settings.
 
+API documentation available on http://localhost:8080/swagger-ui/index.html
 
 If you have no db, you can create it in docker container by docker-compose.yml
 ```
