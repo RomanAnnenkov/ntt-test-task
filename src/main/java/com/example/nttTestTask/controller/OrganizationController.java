@@ -2,6 +2,8 @@ package com.example.nttTestTask.controller;
 
 import com.example.nttTestTask.model.Organization;
 import com.example.nttTestTask.service.OrganizationService;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,6 +17,7 @@ import java.util.List;
  */
 @RestController
 @AllArgsConstructor
+@Tag(name = "Organizations", description = "Interact with organizations")
 public class OrganizationController {
     /**
      * Organization service
@@ -27,6 +30,7 @@ public class OrganizationController {
      * @return List organizations
      */
     @GetMapping("/organizations")
+    @Operation(summary = "Get list of all organization")
     public ResponseEntity<List<Organization>> getAllOrganizations() {
         return ResponseEntity.ok(service.getAllOrganizations());
     }
@@ -38,6 +42,7 @@ public class OrganizationController {
      * @return organization
      */
     @GetMapping("/organizations/{id}")
+    @Operation(summary = "Get organization by id")
     public ResponseEntity<Organization> getOrganizationById(@PathVariable Long id) {
         return ResponseEntity.ok(service.getOrganizationById(id));
     }
