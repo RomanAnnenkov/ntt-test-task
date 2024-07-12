@@ -42,4 +42,13 @@ public class OrganizationSpecifications {
     public static Specification<Organization> hasOgrn(String ogrn) {
         return ((root, query, criteriaBuilder) -> criteriaBuilder.like(root.get("ogrn"), "%" + ogrn + "%"));
     }
+
+    /**
+     * Find organization by id.
+     * @param id ID of organization
+     * @return specification for automatic build query
+     */
+    public static Specification<Organization> hasId(Long id) {
+        return (root, query, criteriaBuilder) -> criteriaBuilder.equal(root.get("id"), id);
+    }
 }

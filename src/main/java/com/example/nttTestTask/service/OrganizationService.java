@@ -33,8 +33,8 @@ public class OrganizationService {
      * @param id organization id
      * @return organization object
      */
-    public Organization getOrganizationById(Long id) {
-        return repository.getReferenceById(id);
+    public List<Organization> getOrganizationById(Long id) {
+        return repository.findAll(Specification.where(OrganizationSpecifications.hasId(id)));
     }
 
     /**

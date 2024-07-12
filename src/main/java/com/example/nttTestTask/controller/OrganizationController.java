@@ -44,7 +44,7 @@ public class OrganizationController {
      */
     @GetMapping("/organizations/{id}")
     @Operation(summary = "Get organization by id")
-    public ResponseEntity<Organization> getOrganizationById(@PathVariable Long id) {
+    public ResponseEntity<List<Organization>> getOrganizationById(@PathVariable Long id) {
         return ResponseEntity.ok(service.getOrganizationById(id));
     }
 
